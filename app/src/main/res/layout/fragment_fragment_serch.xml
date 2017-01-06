@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="loader.rami.com.myprojectplaces.FragmentSerch">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:text="SEARCH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Btsearch"
+            />
+
+        <EditText
+            android:id="@+id/EtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default"
+            android:textColor="@android:color/white"
+            android:hint="Search places" />
+
+
+        <CheckBox
+            android:id="@+id/CbPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEER ME"
+            android:textColor="@android:color/white" />
+
+co
+        <ListView
+            android:id="@+id/LVSerch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/white"
+            android:headerDividersEnabled="false"
+            android:footerDividersEnabled="false" />
+    </LinearLayout>
+
+</FrameLayout>
