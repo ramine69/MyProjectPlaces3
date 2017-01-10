@@ -31,8 +31,6 @@ public class FragmentSearch extends Fragment {
     ListView listView;
     ArrayList<Places> allPlaces;
     View view;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
