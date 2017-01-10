@@ -75,6 +75,11 @@ public class Database extends SQLiteOpenHelper{
 
 
         }
+    public  void  deletAllPlaces ( ){
+        open();
+        database.delete("Places",null, null);
+
+    }
     public  void  deletePlaces ( Places places){
         open();
         database.execSQL(String.format("DELETE FROM Places WHERE id=%d", "_id" ,places.getId()));

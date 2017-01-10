@@ -2,7 +2,11 @@ package loader.rami.com.myprojectplaces;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
+import com.google.android.gms.location.places.Place;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,11 +32,15 @@ public class MyIntentService extends IntentService {
         super("MyIntentService");
     }
 
+
+
     @Override
     protected void onHandleIntent(Intent intent) {
 
 
+
         String searchWord=intent.getStringExtra("search");
+
 
 
         OkHttpClient client = new OkHttpClient();
@@ -55,6 +63,7 @@ public class MyIntentService extends IntentService {
                 e.printStackTrace();
             }
 
+
             JSONObject newObject = new JSONObject(allJSON);
             JSONArray array =  newObject.getJSONArray("results");
 
@@ -67,13 +76,16 @@ public class MyIntentService extends IntentService {
                 String lng=loc.getString("lng");
 
                 Places places = new Places(name,i,lat,lng);
-Database db= new Database(this);
+                Database db= new Database(this);
                 db.AddPlaces(places);
 
-
-
-
                 Log.d( "hfh","json" );
+
+                Intent broadcastMessage = new Intent("FINISHEEEEED");
+                // broadcastMessage.putExtra()
+
+                LocalBroadcastManager.getInstance(this).sendBroadcast( broadcastMessage);
+
 
 
             }

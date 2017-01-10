@@ -2,10 +2,8 @@ package loader.rami.com.myprojectplaces;
 
 
 import android.app.FragmentTransaction;
-import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        FragmentSerch frtSerch = new FragmentSerch();
+        FragmentSearch frtSerch = new FragmentSearch();
         ft.replace(R.id.fragCont,frtSerch, "fragmentSearch");
         ft.commit();
     }
@@ -43,5 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }
