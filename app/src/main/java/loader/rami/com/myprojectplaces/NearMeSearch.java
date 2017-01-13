@@ -2,11 +2,10 @@ package loader.rami.com.myprojectplaces;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-
-import com.google.android.gms.location.places.Place;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,34 +17,36 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static android.R.attr.key;
 
 /**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions and extra parameters.
+ * Created by jbt on 1/13/2017.
  */
-public class MyIntentService extends IntentService {
 
+public class NearMeSearch extends IntentService {
 
-    public MyIntentService() {
-        super("MyIntentService");
+    /**
+     * Creates an IntentService.  Invoked by your subclass's constructor.
+     *
+     * @param name Used to name the worker thread, important only for debugging.
+     */
+    public NearMeSearch(String name) {
+        super(name);
     }
 
-
-
+    public NearMeSearch() {
+        super("");
+    }
     @Override
     protected void onHandleIntent(Intent intent) {
-
-
-
         String searchWord=intent.getStringExtra("search");
-
+        String Mylocation=intent.getStringExtra("l");
+        LocationManager MyLocation = (LocationManager) getSystemService(LOCATION_SERVICE);
 
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("https://maps.googleapis.com/maps/api/place/textsearch/json?query="+searchWord+"&key=AIzaSyA9tE4wl3-W2SYBM9zw7sbUQfTt6xvEHw0")
+                .url("https://maps.googleapis.com/maps/api/place/nearbysearch/json?MyLocation+searchWord+&key=AIzaSyA9tE4wl3-W2SYBM9zw7sbUQfTt6xvEHw0")
                 .build();
 
         Response response = null;
@@ -103,4 +104,6 @@ public class MyIntentService extends IntentService {
      * parameters.
      */
 
+
 }
+
